@@ -9,11 +9,12 @@ export default class SearchBar extends Component {
   static propTypes = {
     onSearch: PropTypes.func.isRequired,
     onCancel: PropTypes.func.isRequired,
+    onUpdateSearchTerm: PropTypes.func.isRequired,
     searchTerm: PropTypes.string
   }
 
   render () {
-    const { onSearch, onCancel, searchTerm } = this.props
+    const { onSearch, onCancel, onUpdateSearchTerm, searchTerm } = this.props
     const onSubmitEditing = () => onSearch(searchTerm)
     return (
       <View style={styles.container}>
@@ -26,7 +27,7 @@ export default class SearchBar extends Component {
           underlineColorAndroid='transparent'
           style={styles.searchInput}
           value={this.props.searchTerm}
-          onChangeText={onSearch}
+          onChangeText={onUpdateSearchTerm}
           autoCapitalize='none'
           onSubmitEditing={onSubmitEditing}
           returnKeyType={'search'}

@@ -5,7 +5,7 @@ import GithubActions from '../Redux/GithubRedux'
 export function * getUserAvatar (api, action) {
   const { username } = action
   // make the call to the api
-  const response = yield call(api.getUser, username)
+  const response = yield call(api.getGifs, '', 0)
 
   if (response.ok) {
     const firstUser = path(['data', 'items'], response)[0]
